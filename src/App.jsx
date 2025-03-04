@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 
 function Box(props) {
+  console.log(customElements.get('my-app-element'))
+  
   const meshRef = useRef()
   const [hovered, setHovered] = useState(false)
   const [active, setActive] = useState(false)
@@ -17,7 +19,7 @@ function Box(props) {
     <mesh
       {...props}
       ref={meshRef}
-      scale={active ? 1.5 : 1}
+      scale={active ? 3.5 : 3}
       onClick={() => setActive(!active)}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}>
@@ -33,8 +35,8 @@ function App() {
       <ambientLight intensity={0.5} />
       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
       <pointLight position={[-10, -10, -10]} intensity={1} />
-      <Box position={[-1.2, 0, 0]} />
-      <Box position={[1.2, 0, 0]} />
+      <Box position={[-3.2, 0, 0]} />
+      <Box position={[3.2, 0, 0]} />
     </Canvas>
   )
 }
